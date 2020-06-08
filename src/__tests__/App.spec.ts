@@ -187,11 +187,15 @@ describe('App', () => {
       email: 'oi@rocketseat.com.br',
     });
 
+    console.log('customer', customer);
+
     const product = await request(app).post('/products').send({
       name: 'Produto 01',
       price: 500,
       quantity: 50,
     });
+
+    console.log('product', product);
 
     const response = await request(app)
       .post('/orders')
@@ -204,6 +208,8 @@ describe('App', () => {
           },
         ],
       });
+
+    console.log('response', response);
 
     expect(response.status).toEqual(400);
   });

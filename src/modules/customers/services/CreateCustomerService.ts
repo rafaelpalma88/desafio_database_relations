@@ -21,7 +21,7 @@ class CreateCustomerService {
     const hasCustomerEmail = await this.customersRepository.findByEmail(email);
 
     if (hasCustomerEmail) {
-      throw new AppError('Os dados de nome e email devem ser preenchidos');
+      throw new AppError('Esse email já existe. nao é possivel prosseguir');
     }
 
     const customer = await this.customersRepository.create({
