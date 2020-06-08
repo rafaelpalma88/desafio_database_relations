@@ -20,12 +20,12 @@ class OrdersProducts {
   @JoinColumn({ name: 'order_id' })
   order: Order;
 
+  @Column('uuid')
+  product_id: string;
+
   @ManyToOne(() => Product)
   @JoinColumn({ name: 'product_id' })
   product: Product;
-
-  @Column('uuid')
-  product_id: string;
 
   @Column({ type: 'numeric', precision: 10, scale: 2 })
   price: number;
